@@ -33,7 +33,7 @@ public abstract class Person {
         }
         for (int i = 0; i < firstName.length(); i++) {
             if (!Character.isLetter(firstName.charAt(i))) {
-                System.out.println("Не верный формат ввода имени.");
+                System.out.println("Не правильный формат ввода имени.");
                 return;
             }
         }
