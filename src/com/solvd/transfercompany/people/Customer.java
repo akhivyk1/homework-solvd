@@ -3,7 +3,6 @@ package com.solvd.transfercompany.people;
 import com.solvd.transfercompany.order.Freighter;
 import com.solvd.transfercompany.order.Passenger;
 
-import java.lang.reflect.Type;
 import java.util.Objects;
 import java.util.Scanner;
 
