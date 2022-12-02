@@ -1,5 +1,4 @@
 # Project exclude paths
 /out/
-/.idea
-/out
-/TransferCompany.iml
+/.idea/
+/TransferCompany.iml/

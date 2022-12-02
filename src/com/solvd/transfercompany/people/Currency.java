@@ -4,18 +4,18 @@ public enum Currency {
         NICKEL(5),
         EUR(100),
         USD(100);
-        private final int valueInPennies;
+        private final int VALUEINPENNIES;
 
-        Currency(int valueInPennies) {
-                this.valueInPennies = valueInPennies;
+        Currency(int VALUEINPENNIES) {
+                this.VALUEINPENNIES = VALUEINPENNIES;
         }
 
-        public int getValueInPennies() {
-                return valueInPennies;
+        public int getVALUEINPENNIES() {
+                return VALUEINPENNIES;
         }
 
         public final int toCoins(int pennies)
         {
-                return pennies / valueInPennies;
+                return pennies / VALUEINPENNIES;
         }
 }

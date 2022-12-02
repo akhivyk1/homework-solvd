@@ -10,10 +10,6 @@ public class Main {
         Customer person = new Customer();
         person.fillInfo(in, person);
         TransferCompany company = new TransferCompany();
-        company.fillDrivers();
-        company.fillLogistician();
-        company.fillTrucks();
-        company.fillMinivans();
         while (chooseAction != 4) {
             System.out.println(person.getFirstName() + " " + person.getLastName() + ", добрый день!" + " Вас приветствует трансферная компания!\nВыберите действие:\n1 - Заказать трансфер для людей.\n2 - Заказать перевозку груза.\n3 - Посмотреть информацию трансферной компании.\n4 - Выход из программы.");
             chooseAction = Integer.parseInt(in.nextLine());
@@ -26,9 +22,11 @@ public class Main {
                     break;
                 case 3:
                     System.out.println(company);
+                    break;
                 case 4:
                 default:
                     System.out.println("Такого варианта нет.");
+                    break;
             }
         }
     }

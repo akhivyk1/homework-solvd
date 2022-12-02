@@ -27,6 +27,10 @@ public class TransferCompany {
         allDrivers = new ArrayList<Driver>();
         allTrucks = new ArrayList<Truck>();
         allMinivans = new ArrayList<Minivan>();
+        this.fillDrivers();
+        this.fillLogistician();
+        this.fillTrucks();
+        this.fillMinivans();
     }
 
     public ArrayList<Logistician> fillLogistician() {
@@ -69,7 +73,7 @@ public class TransferCompany {
     public ArrayList<Freighter> addFreighterOrder(Scanner in) {
         System.out.println("Для создания грузовой перевозки необходимо заполнить следущие поля.");
         Freighter order = new Freighter();
-        System.out.println("Введите расстояние перевозки:\n");
+        System.out.println("Введите расстояние перевозки:");
         order.setDistance(Double.parseDouble(in.nextLine()));
         Random rand = new Random();
         allLogisticans.get(rand.nextInt(allLogisticans.size())).calculateCostFreighter(order);
