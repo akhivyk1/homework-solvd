@@ -1,7 +1,11 @@
 package com.solvd.transfercompany.order;
 
-public class IdCounter {
-    private static long idCounter = 1;
+public final class IdCounter {
+    private static long idCounter;
+
+    static {
+        idCounter = 1;
+    }
 
     public IdCounter() {
 

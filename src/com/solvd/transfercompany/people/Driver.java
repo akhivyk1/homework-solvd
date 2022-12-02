@@ -19,7 +19,7 @@ public class Driver extends Person {
 
     @Override
     public String toString() {
-        return "Driver{" + "firstName = '" + this.getFirstName() + '\'' + ", lastName = '" + this.getLastName() + '\'' + ", sex = " + this.getSex() + '\'' + ", salary = " + salary + '\'' + ", drivingCategory = " + drivingCategory + '}';
+        return "firstName = '" + this.getFirstName() + '\'' + ", lastName = '" + this.getLastName() + '\'' + ", sex = " + this.getSex() + '\'' + ", salary = " + salary + '\'' + ", drivingCategory = " + drivingCategory + '}';
     }
 
     public double getSalary() {

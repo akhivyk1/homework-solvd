@@ -3,20 +3,21 @@ package com.solvd.transfercompany.people;
 import com.solvd.transfercompany.order.Freighter;
 import com.solvd.transfercompany.order.Passenger;
 
+import java.lang.reflect.Type;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Customer extends Person {
     private String phoneNumber;
-    private Float cash;
+    private Currency TypeOfValue;
 
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName, Character sex, String phoneNumber, Float cash) {
+    public Customer(String firstName, String lastName, Character sex, String phoneNumber, Currency TypeOfValue) {
         super(firstName, lastName, sex);
         this.phoneNumber = phoneNumber;
-        this.cash = cash;
+        this.TypeOfValue = TypeOfValue;
     }
 
     public Customer fillInfo(Scanner in, Customer person) {
@@ -36,17 +37,17 @@ public class Customer extends Person {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Customer customer)) return false;
-        return Objects.equals(getPhoneNumber(), customer.getPhoneNumber()) && getCash().equals(customer.getCash());
+        return Objects.equals(getPhoneNumber(), customer.getPhoneNumber());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getPhoneNumber(), getCash());
+        return Objects.hash(getPhoneNumber());
     }
 
     @Override
     public String toString() {
-        return "Customer{" + "phoneNumber='" + phoneNumber + '\'' + ", cash=" + cash + '}';
+        return "Customer{" + "phoneNumber='" + phoneNumber + '\'' + '}';
     }
 
     public String getPhoneNumber() {
@@ -57,14 +58,6 @@ public class Customer extends Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public Float getCash() {
-        return cash;
-    }
-
-    public void setCash(Float cash) {
-        this.cash = cash;
-    }
-
     @Override
     public Passenger calculateCostPassenger(Passenger order) {
         return null;
@@ -73,5 +66,13 @@ public class Customer extends Person {
     @Override
     public Freighter calculateCostFreighter(Freighter order) {
         return null;
+    }
+
+    public Currency getTypeOfValue() {
+        return TypeOfValue;
+    }
+
+    public void setTypeOfValue(Currency typeOfValue) {
+        TypeOfValue = typeOfValue;
     }
 }

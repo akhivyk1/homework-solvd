@@ -80,7 +80,7 @@ public class TransferCompany {
             order.setId(IdCounter.createID());
             order.setTruck(allTrucks.get(rand.nextInt(allTrucks.size())));
             allFreighterOrders.add(order);
-            System.out.println("Заказ на перевозку груза создан.\nУникальный идентификатор заказа: " + order.getId());
+            System.out.println("Заказ на перевозку груза создан.\nУникальный идентификатор заказа: " + order.getId() + "\nДистанция перевозки груза: " + order.getDistance() + "Водитель: " + order.getDriver().toString() + "\nМашина: " + order.getTruck().toString());
         } else {
             System.out.println("Вы отказались от перевозки.");
         }
@@ -104,7 +104,7 @@ public class TransferCompany {
                 order.setId(IdCounter.createID());
                 order.setMinivan(allMinivans.get(rand.nextInt(allTrucks.size())));
                 allPassengerOrders.add(order);
-                System.out.println("Заказ на трансфер пссажиров успешно создан.\nУникальный идентификатор заказа: " + order.getId());
+                System.out.println("Заказ на трансфер пссажиров успешно создан.\nУникальный идентификатор заказа: " + order.getId() + "\nДистанция трансфера: " + order.getDistance() + "\nВодитель: " + order.getDriver().toString() + "\nМашина: " + order.getMinivan().toString());
             } else {
                 System.out.println("Вы отказались от перевозки.");
             }

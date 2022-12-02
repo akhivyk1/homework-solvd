@@ -18,7 +18,6 @@ public class Freighter extends Order {
     @Override
     public String toString() {
         return "Freighter order{" + "id=" + this.getId() + ", cost=" + this.getCost() + ", distance=" + this.getDistance() + ", driver=" + this.getDriver() + '}' + "truck=" + truck + '}';
-
     }
 
     public Truck getTruck() {

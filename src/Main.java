@@ -14,7 +14,7 @@ public class Main {
         company.fillLogistician();
         company.fillTrucks();
         company.fillMinivans();
-        while (chooseAction != 3) {
+        while (chooseAction != 4) {
             System.out.println(person.getFirstName() + " " + person.getLastName() + ", добрый день!" + " Вас приветствует трансферная компания!\nВыберите действие:\n1 - Заказать трансфер для людей.\n2 - Заказать перевозку груза.\n3 - Посмотреть информацию трансферной компании.\n4 - Выход из программы.");
             chooseAction = Integer.parseInt(in.nextLine());
             switch (chooseAction) {
