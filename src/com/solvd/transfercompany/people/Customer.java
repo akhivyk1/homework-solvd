@@ -22,13 +22,28 @@ public class Customer extends Person {
     public Customer fillInfo(Scanner in, Customer person) {
         System.out.println("Доброго времени суток, для продолжения давайте заполним некоторые Ваши данные.");
         System.out.println("Введите Ваше имя:");
-        person.setFirstName(in.nextLine());
+        try {
+            person.setFirstName(in.nextLine());
+        } catch (PeopleException e) {
+            System.out.println(e.getMessage());
+            fillInfo(in, person);
+        }
 
         System.out.println("Введите Вашу фамилию:");
-        person.setLastName(in.nextLine());
+        try {
+            person.setLastName(in.nextLine());
+        } catch (PeopleException e) {
+            System.out.println(e.getMessage());
+            fillInfo(in, person);
+        }
 
         System.out.println("Введите Ваш пол (м/ж):");
-        person.setSex(in.nextLine().charAt(0));
+        try {
+            person.setSex(in.nextLine().charAt(0));
+        } catch (PeopleException e) {
+            System.out.println(e.getMessage());
+            fillInfo(in, person);
+        }
         return person;
     }
 

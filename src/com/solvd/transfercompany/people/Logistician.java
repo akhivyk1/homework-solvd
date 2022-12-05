@@ -5,7 +5,7 @@ import com.solvd.transfercompany.order.Passenger;
 
 import java.util.Objects;
 
-public class Logistician extends Person implements Countable {
+public class Logistician extends Person{
     private int salary;
 
     public Logistician() {

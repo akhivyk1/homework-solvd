@@ -4,6 +4,8 @@ package com.solvd.transfercompany.people;
 import com.solvd.transfercompany.order.Freighter;
 import com.solvd.transfercompany.order.Passenger;
 
+import java.awt.color.ProfileDataException;
+
 public abstract class Person {
     private String firstName;
     private String lastName;
@@ -26,15 +28,13 @@ public abstract class Person {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName) throws PeopleException {
         if (firstName.isEmpty()) {
-            System.out.println("Имя не может быть пустым.");
-            return;
+            throw new PeopleException("Имя не может быть пустым.");
         }
         for (int i = 0; i < firstName.length(); i++) {
             if (!Character.isLetter(firstName.charAt(i))) {
-                System.out.println("Не правильный формат ввода имени.");
-                return;
+                throw new PeopleException("Не правильный формат ввода имени.");
             }
         }
         this.firstName = firstName;
@@ -44,15 +44,13 @@ public abstract class Person {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName) throws PeopleException{
         if (lastName.isEmpty()) {
-            System.out.println("Фамилия не может быть пустая.");
-            return;
+            throw new PeopleException("Фамилия не может быть пустая.");
         }
         for (int i = 0; i < lastName.length(); i++) {
             if (!Character.isLetter(lastName.charAt(i))) {
-                System.out.println("Не верный формат ввода фамилии.");
-                return;
+                throw new PeopleException("Не верный формат ввода фамилии.");
             }
         }
         this.lastName = lastName;
@@ -62,10 +60,9 @@ public abstract class Person {
         return sex;
     }
 
-    public void setSex(Character sex) {
+    public void setSex(Character sex) throws PeopleException {
         if (sex != 'м' && sex != 'ж') {
-            System.out.println("Пол введен некорректно.");
-            return;
+            throw new PeopleException("Пол введен некорректно.");
         }
         this.sex = sex;
     }

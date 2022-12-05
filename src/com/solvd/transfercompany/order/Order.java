@@ -2,6 +2,7 @@ package com.solvd.transfercompany.order;
 
 import com.solvd.transfercompany.people.Driver;
 
+
 public abstract class Order {
     private long id;
     private double cost;
