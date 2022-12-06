@@ -7,6 +7,8 @@ import com.solvd.transfercompany.people.Driver;
 import com.solvd.transfercompany.people.Logistician;
 import com.solvd.transfercompany.transport.Minivan;
 import com.solvd.transfercompany.transport.Truck;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -19,6 +21,8 @@ public class TransferCompany {
     private ArrayList<Truck> allTrucks;
     private ArrayList<Passenger> allPassengerOrders;
     private ArrayList<Minivan> allMinivans;
+
+    private static final Logger logger = LogManager.getLogger();
 
     public TransferCompany() {
         allLogisticans = new ArrayList<Logistician>();
@@ -71,49 +75,49 @@ public class TransferCompany {
     }
 
     public ArrayList<Freighter> addFreighterOrder(Scanner in) {
-        System.out.println("Для создания грузовой перевозки необходимо заполнить следущие поля.");
+        logger.info("Для создания грузовой перевозки необходимо заполнить следущие поля.");
         Freighter order = new Freighter();
-        System.out.println("Введите расстояние перевозки:");
+        logger.info("Введите расстояние перевозки:");
         order.setDistance(Double.parseDouble(in.nextLine()));
         Random rand = new Random();
         allLogisticans.get(rand.nextInt(allLogisticans.size())).calculateCostFreighter(order);
-        System.out.println("Стоимость перевоза груза - " + order.getCost() + "\nДля подтверждения перевозки " +
+        logger.info("Стоимость перевоза груза - " + order.getCost() + "\nДля подтверждения перевозки " +
                 "введите 1. Если хотите отказаться, введите 2");
         if (Integer.parseInt(in.nextLine()) == 1) {
             order.setDriver(allDrivers.get(rand.nextInt(allDrivers.size())));
             order.setId(IdCounter.createID());
             order.setTruck(allTrucks.get(rand.nextInt(allTrucks.size())));
             allFreighterOrders.add(order);
-            System.out.println("Заказ на перевозку груза создан.\nУникальный идентификатор заказа: " + order.getId() + "\nДистанция перевозки груза: " + order.getDistance() + "\nВодитель: " + order.getDriver().toString() + "\nМашина: " + order.getTruck().toString());
+            logger.info("Заказ на перевозку груза создан.\nУникальный идентификатор заказа: " + order.getId() + "\nДистанция перевозки груза: " + order.getDistance() + "\nВодитель: " + order.getDriver().toString() + "\nМашина: " + order.getTruck().toString());
         } else {
-            System.out.println("Вы отказались от перевозки.");
+            logger.info("Вы отказались от перевозки.");
         }
         return allFreighterOrders;
     }
 
     public ArrayList<Passenger> addPassengerOrder(Scanner in) {
-        System.out.println("Что бы заказать трансфер людей, заполните поля.");
+        logger.info("Что бы заказать трансфер людей, заполните поля.");
         Passenger order = new Passenger();
-        System.out.println("Введите расстояние перевозки:");
+        logger.info("Введите расстояние перевозки:");
         double distance = Double.parseDouble(in.nextLine());
         order.setDistance(distance);
-        System.out.println("Введите количество перевозимых пассажиров:");
+        logger.info("Введите количество перевозимых пассажиров:");
         if (Integer.parseInt(in.nextLine()) <= 7) {
             Random rand = new Random();
             allLogisticans.get(rand.nextInt(allLogisticans.size())).calculateCostPassenger(order);
-            System.out.println("Стоимость трансфера пассажиров - " + order.getCost() + "\nДля подтверждения перевозки " +
+            logger.info("Стоимость трансфера пассажиров - " + order.getCost() + "\nДля подтверждения перевозки " +
                     "введите 1. Если хотите отказаться, введите 2");
             if (Integer.parseInt(in.nextLine()) == 1) {
                 order.setDriver(allDrivers.get(rand.nextInt(allDrivers.size())));
                 order.setId(IdCounter.createID());
                 order.setMinivan(allMinivans.get(rand.nextInt(allTrucks.size())));
                 allPassengerOrders.add(order);
-                System.out.println("Заказ на трансфер пссажиров успешно создан.\nУникальный идентификатор заказа: " + order.getId() + "\nДистанция трансфера: " + order.getDistance() + "\nВодитель: " + order.getDriver().toString() + "\nМашина: " + order.getMinivan().toString());
+                logger.info("Заказ на трансфер пссажиров успешно создан.\nУникальный идентификатор заказа: " + order.getId() + "\nДистанция трансфера: " + order.getDistance() + "\nВодитель: " + order.getDriver().toString() + "\nМашина: " + order.getMinivan().toString());
             } else {
-                System.out.println("Вы отказались от перевозки.");
+                logger.info("Вы отказались от перевозки.");
             }
         } else {
-            System.out.println("Приносим свои извинения, трансфер такого количества людей в нащей компании невозможен.\nКоличество перевозмых пассажиров должно быть не больше 7.");
+            logger.info("Приносим свои извинения, трансфер такого количества людей в нащей компании невозможен.\nКоличество перевозмых пассажиров должно быть не больше 7.");
         }
 
         return allPassengerOrders;

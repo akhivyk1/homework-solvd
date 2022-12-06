@@ -2,6 +2,8 @@ package com.solvd.transfercompany.people;
 
 import com.solvd.transfercompany.order.Freighter;
 import com.solvd.transfercompany.order.Passenger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -9,6 +11,8 @@ import java.util.Scanner;
 public class Customer extends Person {
     private String phoneNumber;
     private Currency TypeOfValue;
+
+    private static final Logger logger = LogManager.getLogger();
 
     public Customer() {
     }
@@ -20,8 +24,8 @@ public class Customer extends Person {
     }
 
     public Customer fillInfo(Scanner in, Customer person) {
-        System.out.println("Доброго времени суток, для продолжения давайте заполним некоторые Ваши данные.");
-        System.out.println("Введите Ваше имя:");
+        logger.info("Доброго времени суток, для продолжения давайте заполним некоторые Ваши данные.");
+        logger.info("Введите Ваше имя:");
         try {
             person.setFirstName(in.nextLine());
         } catch (PeopleFirstNameException e) {
@@ -29,19 +33,19 @@ public class Customer extends Person {
             fillInfo(in, person);
         }
 
-        System.out.println("Введите Вашу фамилию:");
+        logger.info("Введите Вашу фамилию:");
         try {
             person.setLastName(in.nextLine());
         } catch (PeopleLastNameException e) {
-            System.out.println(e.getMessage());
+            logger.info(e.getMessage());
             fillInfo(in, person);
         }
 
-        System.out.println("Введите Ваш пол (м/ж):");
+        logger.info("Введите Ваш пол (м/ж):");
         try {
             person.setSex(in.nextLine().charAt(0));
         } catch (PeopleSexException e) {
-            System.out.println(e.getMessage());
+            logger.info(e.getMessage());
             fillInfo(in, person);
         }
         return person;
