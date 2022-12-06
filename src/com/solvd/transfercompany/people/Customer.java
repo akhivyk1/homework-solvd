@@ -24,7 +24,7 @@ public class Customer extends Person {
         System.out.println("Введите Ваше имя:");
         try {
             person.setFirstName(in.nextLine());
-        } catch (PeopleException e) {
+        } catch (PeopleFirstNameException e) {
             System.out.println(e.getMessage());
             fillInfo(in, person);
         }
@@ -32,7 +32,7 @@ public class Customer extends Person {
         System.out.println("Введите Вашу фамилию:");
         try {
             person.setLastName(in.nextLine());
-        } catch (PeopleException e) {
+        } catch (PeopleLastNameException e) {
             System.out.println(e.getMessage());
             fillInfo(in, person);
         }
@@ -40,7 +40,7 @@ public class Customer extends Person {
         System.out.println("Введите Ваш пол (м/ж):");
         try {
             person.setSex(in.nextLine().charAt(0));
-        } catch (PeopleException e) {
+        } catch (PeopleSexException e) {
             System.out.println(e.getMessage());
             fillInfo(in, person);
         }
