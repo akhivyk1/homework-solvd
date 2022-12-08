@@ -10,17 +10,17 @@ import java.util.Scanner;
 
 public class Customer extends Person {
     private String phoneNumber;
-    private Currency TypeOfValue;
+    private double cash;
 
     private static final Logger logger = LogManager.getLogger();
 
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName, Character sex, String phoneNumber, Currency TypeOfValue) {
+    public Customer(String firstName, String lastName, Character sex, String phoneNumber, double cash) {
         super(firstName, lastName, sex);
         this.phoneNumber = phoneNumber;
-        this.TypeOfValue = TypeOfValue;
+        this.cash = cash;
     }
 
     public Customer fillInfo(Scanner in, Customer person) {
@@ -86,11 +86,11 @@ public class Customer extends Person {
         return null;
     }
 
-    public Currency getTypeOfValue() {
-        return TypeOfValue;
+    public double getCash() {
+        return cash;
     }
 
-    public void setTypeOfValue(Currency typeOfValue) {
-        TypeOfValue = typeOfValue;
+    public void setCash(double cash) {
+        this.cash = cash;
     }
 }

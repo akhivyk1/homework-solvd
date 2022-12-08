@@ -3,20 +3,20 @@ package com.solvd.transfercompany;
 import com.solvd.transfercompany.order.Freighter;
 import com.solvd.transfercompany.order.IdCounter;
 import com.solvd.transfercompany.order.Passenger;
+import com.solvd.transfercompany.people.Currency;
 import com.solvd.transfercompany.people.Driver;
+import com.solvd.transfercompany.people.Customer;
 import com.solvd.transfercompany.people.Logistician;
 import com.solvd.transfercompany.transport.Minivan;
 import com.solvd.transfercompany.transport.Truck;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class TransferCompany {
     private ArrayList<Logistician> allLogisticans;
-    private ArrayList<Freighter> allFreighterOrders;
+    private LinkedList<Freighter> allFreighterOrders;
     private ArrayList<Driver> allDrivers;
     private ArrayList<Truck> allTrucks;
     private ArrayList<Passenger> allPassengerOrders;
@@ -26,7 +26,7 @@ public class TransferCompany {
 
     public TransferCompany() {
         allLogisticans = new ArrayList<Logistician>();
-        allFreighterOrders = new ArrayList<Freighter>();
+        allFreighterOrders = new LinkedList<Freighter>();
         allPassengerOrders = new ArrayList<Passenger>();
         allDrivers = new ArrayList<Driver>();
         allTrucks = new ArrayList<Truck>();
@@ -38,18 +38,34 @@ public class TransferCompany {
     }
 
     public ArrayList<Logistician> fillLogistician() {
-        allLogisticans.add(new Logistician("Степан", "Шарупин", 'м', 320));
-        allLogisticans.add(new Logistician("Василий", "Долгинов", 'м', 430));
-        allLogisticans.add(new Logistician("Ирина", "Кривошеина", 'ж', 370));
-        allLogisticans.add(new Logistician("Юрий", "Шаляпин", 'м', 300));
-        allLogisticans.add(new Logistician("Анастасия", "Вальховская", 'ж', 368));
+        HashSet<Integer> salary = new HashSet<Integer>();
+        salary.add(320);
+        salary.add(430);
+        salary.add(370);
+        salary.add(300);
+        salary.add(999);
+        salary.add(435);
+        Object[] asArray = salary.toArray();
+        Object key = asArray[new Random().nextInt(salary.size())];
+        allLogisticans.add(new Logistician("Степан", "Шарупин", 'м', (Integer) key));
+        allLogisticans.add(new Logistician("Василий", "Долгинов", 'м', (Integer) key));
+        allLogisticans.add(new Logistician("Ирина", "Кривошеина", 'ж', (Integer) key));
+        allLogisticans.add(new Logistician("Юрий", "Шаляпин", 'м', (Integer) key));
+        allLogisticans.add(new Logistician("Анастасия", "Вальховская", 'ж', (Integer) key));
         return allLogisticans;
     }
 
     public ArrayList<Driver> fillDrivers() {
-        allDrivers.add(new Driver("Александр", "Долгачев", 'м', 'E', 550.5));
-        allDrivers.add(new Driver("Дмитрий", "Петрухин", 'м', 'E', 550.5));
-        allDrivers.add(new Driver("Роман", "Прохоров", 'м', 'E', 550.5));
+        HashMap<String, String> drivers = new HashMap<String, String>();
+        drivers.put("Александр", "Долгачев");
+        drivers.put("Дмитрий", "Петрухин");
+        drivers.put("Роман", "Прохоров");
+        drivers.put("Денис", "Урюпов");
+        Object[] array = drivers.keySet().toArray();
+        Object key = array[new Random().nextInt(array.length)];
+        allDrivers.add(new Driver((String) key, drivers.get(key), 'м', 'E', 550.5));
+        allDrivers.add(new Driver((String) key, drivers.get(key), 'м', 'E', 550.5));
+        allDrivers.add(new Driver((String) key, drivers.get(key), 'м', 'E', 550.5));
         return allDrivers;
     }
 
@@ -74,7 +90,7 @@ public class TransferCompany {
         return allMinivans;
     }
 
-    public ArrayList<Freighter> addFreighterOrder(Scanner in) {
+    public LinkedList<Freighter> addFreighterOrder(Scanner in) {
         logger.info("Для создания грузовой перевозки необходимо заполнить следущие поля.");
         Freighter order = new Freighter();
         logger.info("Введите расстояние перевозки:");
@@ -135,11 +151,11 @@ public class TransferCompany {
                 '}';
     }
 
-    public ArrayList<Freighter> getAllFreighterOrders() {
+    public LinkedList<Freighter> getAllFreighterOrders() {
         return allFreighterOrders;
     }
 
-    public void setAllFreighterOrders(ArrayList<Freighter> allFreighterOrders) {
+    public void setAllFreighterOrders(LinkedList<Freighter> allFreighterOrders) {
         this.allFreighterOrders = allFreighterOrders;
     }
 

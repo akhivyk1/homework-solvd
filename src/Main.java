@@ -27,7 +27,6 @@ public class Main {
                 case 3:
                     System.out.println(company);
                     break;
-                case 4:
                 default:
                     logger.info("Такого варианта нет.");
                     break;
