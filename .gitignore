@@ -1,7 +1,7 @@
 # Project exclude paths
 /out/
-/.idea/
-/TransferCompany.iml/
-/log4j-api-2.19.0.jar/
-/log4j-core-2.19.0.jar/
-/src/com/solvd/transfercompany/log4j2.xml/
+.idea/
+TransferCompany.iml/
+log4j-api-2.19.0.jar/
+log4j-core-2.19.0.jar/
+src/com/solvd/transfercompany/log4j2.xml/
