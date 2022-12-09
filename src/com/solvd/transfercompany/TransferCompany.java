@@ -38,7 +38,7 @@ public class TransferCompany {
     }
 
     public ArrayList<Logistician> fillLogistician() {
-        HashSet<Integer> salary = new HashSet<Integer>();
+        Set<Integer> salary = new HashSet<Integer>();
         salary.add(320);
         salary.add(430);
         salary.add(370);
@@ -56,7 +56,7 @@ public class TransferCompany {
     }
 
     public ArrayList<Driver> fillDrivers() {
-        HashMap<String, String> drivers = new HashMap<String, String>();
+        Map<String, String> drivers = new HashMap<String, String>();
         drivers.put("Александр", "Долгачев");
         drivers.put("Дмитрий", "Петрухин");
         drivers.put("Роман", "Прохоров");
