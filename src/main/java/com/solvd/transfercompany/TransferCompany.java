@@ -68,14 +68,6 @@ public class TransferCompany {
         allDrivers.add(new Driver((String) key, drivers.get(key), 'м', 'E', 550.5));
         return allDrivers;
     }
-
-    public ArrayList<Driver> fillDrivers(Driver first, Driver second, Driver third) {
-        allDrivers.add(first);
-        allDrivers.add(second);
-        allDrivers.add(third);
-        return allDrivers;
-    }
-
     public ArrayList<Truck> fillTrucks() {
         allTrucks.add(new Truck("Mercedes-Benz Actros MP3", 200, 4.5));
         allTrucks.add(new Truck("Scania R420", 200, 5.5));
