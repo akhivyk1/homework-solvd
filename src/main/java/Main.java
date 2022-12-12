@@ -18,18 +18,10 @@ public class Main {
             logger.info(person.getFirstName() + " " + person.getLastName() + ", добрый день!" + " Вас приветствует трансферная компания!\nВыберите действие:\n1 - Заказать трансфер для людей.\n2 - Заказать перевозку груза.\n3 - Посмотреть информацию трансферной компании.\n4 - Выход из программы.");
             chooseAction = Integer.parseInt(in.nextLine());
             switch (chooseAction) {
-                case 1:
-                    company.addPassengerOrder(in);
-                    break;
-                case 2:
-                    company.addFreighterOrder(in);
-                    break;
-                case 3:
-                    System.out.println(company);
-                    break;
-                default:
-                    logger.info("Такого варианта нет.");
-                    break;
+                case 1 -> company.addPassengerOrder(in);
+                case 2 -> company.addFreighterOrder(in);
+                case 3 -> System.out.println(company);
+                default -> logger.info("Такого варианта нет.");
             }
         }
     }
