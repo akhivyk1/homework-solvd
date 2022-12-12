@@ -28,7 +28,7 @@ public class Customer extends Person {
         logger.info("Введите Ваше имя:");
         try {
             person.setFirstName(in.nextLine());
-        } catch (PeopleFirstNameException e) {
+        } catch (PeopleException e) {
             System.out.println(e.getMessage());
             fillInfo(in, person);
         }
@@ -36,7 +36,7 @@ public class Customer extends Person {
         logger.info("Введите Вашу фамилию:");
         try {
             person.setLastName(in.nextLine());
-        } catch (PeopleLastNameException e) {
+        } catch (PeopleException e) {
             logger.info(e.getMessage());
             fillInfo(in, person);
         }
@@ -44,7 +44,7 @@ public class Customer extends Person {
         logger.info("Введите Ваш пол (м/ж):");
         try {
             person.setSex(in.nextLine().charAt(0));
-        } catch (PeopleSexException e) {
+        } catch (PeopleException e) {
             logger.info(e.getMessage());
             fillInfo(in, person);
         }

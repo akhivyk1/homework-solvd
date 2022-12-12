@@ -8,7 +8,7 @@ public class MyLinkedList<T> {
 
     public void add(T item) {
         if (pointer == array.length - 1)
-            resize(array.length * 2); // увеличу в 2 раза, если достигли границ
+            resize(array.length * 2);
         array[pointer++] = item;
     }
 
