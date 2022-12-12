@@ -1,5 +1,5 @@
 # Project exclude paths
 /out/
-.idea/
-TransferCompany.iml/
+/.idea/
+/TransferCompany.iml/
 src/com/solvd/transfercompany/log4j2.xml/
