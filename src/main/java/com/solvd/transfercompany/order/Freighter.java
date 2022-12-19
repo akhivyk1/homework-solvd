@@ -3,6 +3,8 @@ package com.solvd.transfercompany.order;
 import com.solvd.transfercompany.people.Driver;
 import com.solvd.transfercompany.transport.Truck;
 
+import java.util.function.Function;
+
 public class Freighter extends Order {
     private Truck truck;
 
@@ -10,7 +12,7 @@ public class Freighter extends Order {
 
     }
 
-    public Freighter(double cost, double distance, Driver driver, long id, Truck truck) {
+    public Freighter(Function<Integer, Double> cost, double distance, Driver driver, long id, Truck truck) {
         super(cost, distance, driver, id);
         this.truck = truck;
     }

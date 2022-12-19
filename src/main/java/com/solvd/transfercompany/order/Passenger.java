@@ -4,6 +4,7 @@ import com.solvd.transfercompany.people.Driver;
 import com.solvd.transfercompany.transport.Minivan;
 
 import java.util.Objects;
+import java.util.function.Function;
 
 public class Passenger extends Order {
     private Minivan minivan;
@@ -12,7 +13,7 @@ public class Passenger extends Order {
 
     }
 
-    public Passenger(double cost, double distance, Driver driver, long id, Minivan minivan) {
+    public Passenger(Function<Integer, Double> cost, double distance, Driver driver, long id, Minivan minivan) {
         super(cost, distance, driver, id);
         this.minivan = minivan;
     }

@@ -2,10 +2,12 @@ package com.solvd.transfercompany.order;
 
 import com.solvd.transfercompany.people.Driver;
 
+import java.util.function.Function;
+
 
 public abstract class Order {
     private long id;
-    private double cost;
+    private Function<Integer, Double> cost;
     private double distance;
     private Driver driver;
 
@@ -13,7 +15,7 @@ public abstract class Order {
 
     }
 
-    public Order(double cost, double distance, Driver driver, long id) {
+    public Order(Function<Integer, Double> cost, double distance, Driver driver, long id) {
         this.cost = cost;
         this.distance = distance;
         this.driver = driver;
@@ -28,11 +30,11 @@ public abstract class Order {
         this.distance = distance;
     }
 
-    public double getCost() {
+    public Function<Integer, Double> getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(Function<Integer, Double> cost) {
         this.cost = cost;
     }
 

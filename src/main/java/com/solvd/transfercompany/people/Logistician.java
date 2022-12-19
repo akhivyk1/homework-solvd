@@ -4,6 +4,7 @@ import com.solvd.transfercompany.order.Freighter;
 import com.solvd.transfercompany.order.Passenger;
 
 import java.util.Objects;
+import java.util.function.Function;
 
 public class Logistician extends Person {
     private int salary;
@@ -45,11 +46,11 @@ public class Logistician extends Person {
 
     @Override
     public Freighter calculateCostFreighter(Freighter order) {
-        double finalCost = 0;
+        Function<Integer, Double> finalCost;
         if (order.getDistance() < 100) {
-            finalCost = order.getDistance() * 0.8;
+            finalCost = a -> order.getDistance() / 0.8;
         } else {
-            finalCost = order.getDistance() * 0.6;
+            finalCost = a -> order.getDistance() / 0.6;
         }
         order.setCost(finalCost);
         return order;
@@ -57,7 +58,8 @@ public class Logistician extends Person {
 
     @Override
     public Passenger calculateCostPassenger(Passenger order) {
-        double finalCost = order.getDistance() * 0.7;
+        Function<Integer, Double> finalCost;
+        finalCost = a -> order.getDistance() * 0.7;
         order.setCost(finalCost);
         return order;
     }
