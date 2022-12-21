@@ -37,33 +37,18 @@ public class TransferCompany {
 
     public ArrayList<Logistician> fillLogistician() {
         Set<Integer> salary = new HashSet<Integer>();
-        salary.add(320);
-        salary.add(430);
-        salary.add(370);
-        salary.add(300);
-        salary.add(999);
-        salary.add(435);
-        Object[] asArray = salary.toArray();
-        Object key = asArray[new Random().nextInt(salary.size())];
-        allLogisticans.add(new Logistician("Степан", "Шарупин", 'м', (Integer) key));
-        allLogisticans.add(new Logistician("Василий", "Долгинов", 'м', (Integer) key));
-        allLogisticans.add(new Logistician("Ирина", "Кривошеина", 'ж', (Integer) key));
-        allLogisticans.add(new Logistician("Юрий", "Шаляпин", 'м', (Integer) key));
-        allLogisticans.add(new Logistician("Анастасия", "Вальховская", 'ж', (Integer) key));
+        allLogisticans.add(new Logistician("Степан", "Шарупин", 'м', 720));
+        allLogisticans.add(new Logistician("Василий", "Долгинов", 'м', 565));
+        allLogisticans.add(new Logistician("Ирина", "Кривошеина", 'ж', 980));
+        allLogisticans.add(new Logistician("Юрий", "Шаляпин", 'м', 486));
+        allLogisticans.add(new Logistician("Анастасия", "Вальховская", 'ж', 777));
         return allLogisticans;
     }
 
     public ArrayList<Driver> fillDrivers() {
-        Map<String, String> drivers = new HashMap<String, String>();
-        drivers.put("Александр", "Долгачев");
-        drivers.put("Дмитрий", "Петрухин");
-        drivers.put("Роман", "Прохоров");
-        drivers.put("Денис", "Урюпов");
-        Object[] array = drivers.keySet().toArray();
-        Object key = array[new Random().nextInt(array.length)];
-        allDrivers.add(new Driver((String) key, drivers.get(key), 'м', 'E', 550.5));
-        allDrivers.add(new Driver((String) key, drivers.get(key), 'м', 'E', 550.5));
-        allDrivers.add(new Driver((String) key, drivers.get(key), 'м', 'E', 550.5));
+        allDrivers.add(new Driver("Александр", "Долгачев", 'м', 'E', 550.5));
+        allDrivers.add(new Driver("Дмитрий", "Петрухин", 'м', 'E', 550.5));
+        allDrivers.add(new Driver("Роман", "Прохоров", 'м', 'E', 550.5));
         return allDrivers;
     }
     public ArrayList<Truck> fillTrucks() {

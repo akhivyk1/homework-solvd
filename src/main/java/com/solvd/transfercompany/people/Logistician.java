@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.function.Function;
 
 public class Logistician extends Person {
-    private int salary;
+    private double salary;
 
     public Logistician() {
 
