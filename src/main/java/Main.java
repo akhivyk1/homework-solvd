@@ -23,7 +23,7 @@ public class Main {
         person.setLastName("РЕГИНОВ");
         person.setCash(121);
         TransferCompany company = new TransferCompany();
-        while (chooseAction != 6) {
+        while (chooseAction != 7) {
             logger.info(person.getFirstName() + " " + person.getLastName() + ", добрый день!" + " Вас приветствует трансферная компания!\nВыберите действие:\n1 - Заказать трансфер для людей.\n2 - Заказать перевозку груза.\n3 - Посмотреть информацию трансферной компании.\n4 - Выход из программы.");
             chooseAction = Integer.parseInt(in.nextLine());
             switch (chooseAction) {
